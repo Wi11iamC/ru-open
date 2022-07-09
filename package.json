@@ -1,0 +1,20 @@
+{
+  "name": "ru-voidclass",
+  "version": "1.0.0",
+  "description": "open classroom finder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wi11iamC/ru-voidclass.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wi11iamC/ru-voidclass/issues"
+  },
+  "homepage": "https://github.com/Wi11iamC/ru-voidclass#readme"
+}
