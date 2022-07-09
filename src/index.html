@@ -22,7 +22,7 @@
           <legend>Select a day</legend>
           <div class="day-filter-options">
             <div class="option">
-              <input type="radio" id="Mon" name="day" value="Mon" />
+              <input type="radio" id="Mon" name="day" value="Mon" required />
               <label for="Mon">Mon</label> <br />
             </div>
             <div class="option">
@@ -44,7 +44,7 @@
           </div>
           <legend>Select a Building</legend>
           <div class="campus-selection">
-            <div class="button" id="CAC">College Avenue</div>
+            <!-- <div class="button" id="CAC">College Avenue</div> -->
             <div class="button" id="BUS">Busch</div>
             <div class="button" id="LIV">Livingston</div>
             <div class="button" id="CD">Cook/Douglas</div>
@@ -53,7 +53,13 @@
             <legend class="campus-section-header">CAC:</legend>
             <div class="building-filter-options">
               <div class="option">
-                <input type="radio" id="AB" name="building" value="AB" />
+                <input
+                  type="radio"
+                  id="AB"
+                  name="building"
+                  value="AB"
+                  required
+                />
                 <label for="AB">Rutgers Academic Building</label> <br />
               </div>
               <div class="option">

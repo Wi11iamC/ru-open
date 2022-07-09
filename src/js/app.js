@@ -19,7 +19,7 @@ async function printJSON() {
     const json = await response.json();
     console.log(json);
 }
-
+/*
 CA_BUTTON.addEventListener('pointerdown', e => {
     CA_BUTTON.style.backgroundColor = '#333';
     CAC_Section.style.display = CAC_Section.style.display == 'none' || CAC_Section.style.display == '' ? 'grid': 'none';
@@ -30,7 +30,7 @@ CA_BUTTON.addEventListener('pointerup', e => {
 CA_BUTTON.addEventListener('pointermove', e => {
     CA_BUTTON.style.backgroundColor = '#219ebc';
 });
-
+*/
 
 BUS_BUTTON.addEventListener('pointerdown' , e => {
     BUS_Section.style.display = BUS_Section.style.display == 'none' || BUS_Section.style.display == '' ? 'grid': 'none';
