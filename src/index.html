@@ -22,23 +22,23 @@
           <legend>Select a day</legend>
           <div class="day-filter-options">
             <div class="option">
-              <input type="radio" id="Mon" name="day" value="Mon" required />
+              <input type="radio" id="Mon" name="day" value="M" required />
               <label for="Mon">Mon</label> <br />
             </div>
             <div class="option">
-              <input type="radio" id="Tue" name="day" value="Tue" />
+              <input type="radio" id="Tue" name="day" value="T" />
               <label for="Tue">Tue</label> <br />
             </div>
             <div class="option">
-              <input type="radio" id="Wed" name="day" value="Wed" />
+              <input type="radio" id="Wed" name="day" value="W" />
               <label for="Wed">Wed</label>
             </div>
             <div class="option">
-              <input type="radio" id="Thurs" name="day" value="Thurs" />
+              <input type="radio" id="Thurs" name="day" value="H" />
               <label for="Thurs">Thurs</label>
             </div>
             <div class="option">
-              <input type="radio" id="Fri" name="day" value="Fri" />
+              <input type="radio" id="Fri" name="day" value="F" />
               <label for="Fri">Fri</label>
             </div>
           </div>
@@ -273,12 +273,20 @@
             </div>
           </div>
 
-          <button class="button" type="submit" value="Filter">Filter</button>
+          <button
+            class="button"
+            id="filter-button"
+            type="submit"
+            value="Filter"
+          >
+            Filter
+          </button>
         </form>
       </div>
+      <div class="filtered-courses-container"></div>
     </main>
     <footer></footer>
     <script type="text/javascript" src="./assets/courses.json"></script>
-    <script type="text/javascript" src="./js/app.js"></script>
+    <script type="module" src="./js/app.js"></script>
   </body>
 </html>

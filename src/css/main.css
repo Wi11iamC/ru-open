@@ -162,3 +162,13 @@ legend {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
+.filtered-courses-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.filtered-course {
+    
+}

@@ -1,5 +1,11 @@
+import getCourses from './api.js';
+import filterCourses from './filterCourses.js';
+import sortCourses from './sortCourses.js';
+import addCoursesToPage from './addCoursesToPage.js';
+
+
 const form = document.querySelector('form');
-const filterButton = document.querySelector('.filter-button');
+const filterButton = document.querySelector('#filter-button');
 
 /* Campus Button Selection*/
 const CA_BUTTON = document.querySelector('#CAC');
@@ -13,12 +19,11 @@ const BUS_Section = document.querySelector('.BUS-Section');
 const LIV_Section = document.querySelector('.LIV-Section');
 const CD_Section = document.querySelector('.CD-Section');
 
+/* container for filtered courses */
 
-async function printJSON() {
-    const response = await fetch("../assets/courses.json");
-    const json = await response.json();
-    console.log(json);
-}
+const filteredCoursesContainer = document.querySelector('.filtered-courses-container');
+
+
 /*
 CA_BUTTON.addEventListener('pointerdown', e => {
     CA_BUTTON.style.backgroundColor = '#333';
@@ -78,9 +83,13 @@ filterButton.addEventListener('pointerup', (e) => {
     filterButton.style.color = '#fff';
 });
 
-//form.addEventListener('submit', onFormSubmitted);
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    filteredCoursesContainer.innerHTML = '';
+    const formData = new FormData(form);
+    const response = await getCourses();
+    const filteredCourses = await filterCourses(formData.get('day'),formData.get('building'), response);
+    addCoursesToPage(filteredCourses, filteredCoursesContainer, formData.get('day'), formData.get('building'));
 
 
-async function onFormSubmitted(event) {
-    event.preventDefault();
-  }
+});
