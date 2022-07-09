@@ -1,4 +1,4 @@
-# ru-voidclass
+# ru-open
 
 ## Open Classroom Finder
 
