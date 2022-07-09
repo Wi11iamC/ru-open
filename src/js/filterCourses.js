@@ -8,7 +8,7 @@ export default async function filterCourses(day, building, courseList) {
         course.sections.forEach(courseSection => {
             
             courseSection.meetingTimes.forEach(classMeeting => {
-                if (classMeeting.buildingCode == building) {
+                if (!filteredCourses.includes(course) && (classMeeting.buildingCode == building)) {
                     filteredCourses[filteredCoursesIndex] = course;
                     filteredCoursesIndex++;
                 }
