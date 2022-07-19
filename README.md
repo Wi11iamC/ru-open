@@ -11,3 +11,16 @@ This project makes an API call to fetch data for all courses for the current sem
 Must use a static file server (i.e [lite-server](https://www.npmjs.com/package/lite-server))
 
 OR
+
+Navigate to server directory
+
+```sh
+cd server
+```
+and run
+
+```sh
+npm run dev
+```
+
+visit [http://localhost:3000](http://localhost:3000)
