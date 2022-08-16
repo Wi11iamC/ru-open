@@ -32,3 +32,9 @@ code {
   flex-direction: column;
   margin: 10px;
 }
+
+.loading-image-wrapper {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
