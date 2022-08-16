@@ -16,10 +16,15 @@ const App : React.FC = () => {
     e.preventDefault()
     setloading(true);
     let ddata:any = await getCourses(day, campus, building);
+    setloading(false);
+    ddata.forEach((course:any) => {
+
+      course.sections = course.sections.filter((section:any) => section.meetingTimes.some((meetingTimes:any) => (meetingTimes.meetingDay === day && meetingTimes.buildingCode === building)))
+      
+    })
+
     console.log(ddata);
     setData(ddata);
-    setloading(false);
-    
 
 }
   return (
@@ -61,11 +66,19 @@ const App : React.FC = () => {
 
       <div className="courses-container">
         {
-          data.map((course: any, index) => (
-            <CourseElement key={index} title={course.title}/>
+        
+          data.map((course:any, index:any) => (
+
+            course.sections.map((section:any, index:any) => (
+              //section.meetingTimes.map((classMeeting:any, index:any) => (
+               <CourseElement key={section.index} index={section.index} title={course.title} section={section.number} /*room={classMeeting.roomNumber} start={classMeeting.startTimeMilitary} end={classMeeting.endTimeMilitary}*/ />
+            //))
 
           ))
-        }
+//<CourseElement key={index} index={index} title={course.title} section={null} room={null} start={null} end={null}/>
+       ))
+          }
+
       </div>
     </React.Fragment>
   );
