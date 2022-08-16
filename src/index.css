@@ -25,6 +25,7 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #CC0033;
 }
 
 .form-wrapper {
