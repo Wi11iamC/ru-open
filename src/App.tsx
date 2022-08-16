@@ -16,8 +16,8 @@ const App : React.FC = () => {
     e.preventDefault()
     setloading(true);
     let ddata:any = await getCourses(day, campus, building);
+    console.log(ddata);
     setData(ddata);
-    console.log(data);
     setloading(false);
     
 
