@@ -1,17 +1,24 @@
 import React from 'react';
 import { BuildingDropDown } from './Components/BuildingDropDown';
+import getCourses from './api';
+import { CourseElement } from './Components/CourseElement';
 
 
 const App : React.FC = () => {
 
-  const [day, setDay] = React.useState("mon");
+  const [day, setDay] = React.useState("M");
   const [campus, setCampus] = React.useState("BUS")
   const [building, setBuilding] = React.useState("ARC");
   const [loading, setloading] = React.useState(false) 
+  const [data, setData] = React.useState([{}]);
   
-  const formSubmitted: React.FormEventHandler = (e: React.FormEvent) => {
+  const formSubmitted: React.FormEventHandler = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault()
     setloading(true);
+    let ddata:any = await getCourses(day, campus, building);
+    setData(ddata);
+    console.log(data);
+    setloading(false);
     
 
 }
@@ -24,13 +31,11 @@ const App : React.FC = () => {
           <form onSubmit={formSubmitted} className='form-wrapper'>
             <label htmlFor='day'>I want to search for classes on </label>
           <select name='day' id='daySelection' value={day} onChange={(e) => {setDay(e.target.value)}}>
-          <option value="sun">Sunday</option>
-            <option value="mon">Monday</option>
-            <option value="tues">Tuesday</option>
-            <option value="wed">Wednesday</option>
-            <option value="thurs">Thursday</option>
-            <option value="fri">Friday</option>
-            <option value="sat">Saturday</option>
+            <option value="M">Monday</option>
+            <option value="T">Tuesday</option>
+            <option value="W">Wednesday</option>
+            <option value="H">Thursday</option>
+            <option value="F">Friday</option>
             </select>
           <label htmlFor='campus'> at {" "}
           <select  name='campus' id='campusSelection' value={campus} onChange={(e) => {setCampus(e.target.value)}}>
@@ -50,11 +55,18 @@ const App : React.FC = () => {
       </div>
       {loading && (
       <div className='loading-image-wrapper'>
-        <img alt='loading' id='loading-image' src='https://media3.giphy.com/media/uSuSSuq2OrAYknT2zc/200w.gif?cid=ecf05e47hbixgkhwnqpef9a4rbrvx8yfd1kfh7m54g9w6knh&rid=200w.gif&ct=g'/>
+        <img alt='loading' id='loading-image' src='https://media3.giphy.com/media/uSuSSuq2OrAYknT2zc/200w.gif?cid=ecf05e47hbixgkhwnqpef9a4rbrvx8yfd1kfh7m54g9w6knh&rid=200w.gif&ct=g' />
       </div>
     )}
 
-      <div className="courses-container"></div>
+      <div className="courses-container">
+        {
+          data.map((course: any, index) => (
+            <CourseElement key={index} title={course.title}/>
+
+          ))
+        }
+      </div>
     </React.Fragment>
   );
 }
