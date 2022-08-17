@@ -46,9 +46,9 @@ code {
 }
 
 .courses-container {
-  display: grid 1fr 1fr;
+  display: grid 1fr;
+  
 }
-
 
 .inactive {
   display: none;
@@ -59,10 +59,8 @@ code {
 }
 
 .modal-main {
-  position: absolute;
-  top:0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #282c34;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background-color: red;
 }

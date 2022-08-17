@@ -63,15 +63,15 @@ export const CourseElement = (props: any) => {
 
 return (
 
-<div className="courses-container" id='courses-container'>
+<div className="courses-container">
         
 {
         roomNumbers.map((room, index:any) => {
                 return (
-                <div className="roomNumber-wrapper" key={index+100}>
+                <>
                 <button className="room-button" onClick={() => openModal(index+1000)}>{room}</button>
                 <ModalElements idx={index+1000} room={room} coursesData={coursesData} closeModal={closeModal} />
-                </div>
+                </>
                 )
 
         })
