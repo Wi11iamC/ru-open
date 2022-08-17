@@ -1,34 +1,27 @@
 import React from "react";
-import Modal from 'react-modal';
-
-const customStyles = {
-        content: {
-          backgroundColor: "#282c34",
-          opacity: "100%",
-        },
-        overlay: {
-          backgroundColor: "#CC0033",
-          
-        }
-      };
+import ModalElements from "./ModalElements";
 
 
 export const CourseElement = (props: any) => {
 
-        const [modalIsOpen, setIsOpen] = React.useState(false);
       
-        function openModal() {
-          setIsOpen(true);
+        function openModal(id:any) {
+
+          const mm = document.querySelector(`#modal-${id}`)
+          if (mm != null){
+          mm.classList.add("active")
+          mm.classList.remove("inactive")
+          }
         }
       
-        function afterOpenModal() {
-          // references are now sync'd and can be accessed.
+        function closeModal(id:any) {
+
+          const mm = document.querySelector(`#modal-${id}`)
+          if (mm != null){
+          mm.classList.remove("active")
+          mm.classList.add("inactive")
+          }
         }
-      
-        function closeModal() {
-          setIsOpen(false);
-        }
-        Modal.setAppElement('#root');
 
 
 
@@ -76,30 +69,8 @@ return (
         roomNumbers.map((room, index:any) => {
                 return (
                 <div className="roomNumber-wrapper" key={index+100}>
-                <button className="room-button" onClick={openModal}>{room}</button>
-                <Modal isOpen={modalIsOpen} onAfterOpen={afterOpenModal} onRequestClose={closeModal} style={customStyles} contentLabel="Modal" >
-                <h3>{room}</h3>
-                <button onClick={closeModal}>close</button>
-                {
-                coursesData.map((course:any) => (
-                        
-                        course.sections.map((section:any) => (
-
-                        section.meetingTimes.map((classMeeting:any) => (
-                                <div key={section.index}>
-                                        {(classMeeting.roomNumber === room && 
-                                         <p>{course.title} | section: {section.number} | {classMeeting.startTimeMilitary}-{classMeeting.endTimeMilitary} | room={classMeeting.roomNumber}</p>
-                                         )}
-                                </div>
-
-                        ))
-
-                ))
-                        
-
-                ))
-        }
-                        </Modal>
+                <button className="room-button" onClick={() => openModal(index+1000)}>{room}</button>
+                <ModalElements idx={index+1000} room={room} coursesData={coursesData} closeModal={closeModal} />
                 </div>
                 )
 

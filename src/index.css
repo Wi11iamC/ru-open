@@ -48,3 +48,21 @@ code {
 .courses-container {
   display: grid 1fr 1fr;
 }
+
+
+.inactive {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.modal-main {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #282c34;
+}
