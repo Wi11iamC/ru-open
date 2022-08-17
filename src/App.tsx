@@ -10,7 +10,7 @@ const App : React.FC = () => {
   const [campus, setCampus] = React.useState("BUS")
   const [building, setBuilding] = React.useState("ARC");
   const [loading, setloading] = React.useState(false) 
-  const [data, setData] = React.useState([{}]);
+  const [data, setData] = React.useState([]);
   
   const formSubmitted: React.FormEventHandler = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault()
@@ -64,22 +64,8 @@ const App : React.FC = () => {
       </div>
     )}
 
-      <div className="courses-container">
-        {
-        
-          data.map((course:any, index:any) => (
+            <CourseElement courses={data} day={day} building={building}/>
 
-            course.sections.map((section:any, index:any) => (
-              //section.meetingTimes.map((classMeeting:any, index:any) => (
-               <CourseElement key={section.index} index={section.index} title={course.title} section={section.number} /*room={classMeeting.roomNumber} start={classMeeting.startTimeMilitary} end={classMeeting.endTimeMilitary}*/ />
-            //))
-
-          ))
-//<CourseElement key={index} index={index} title={course.title} section={null} room={null} start={null} end={null}/>
-       ))
-          }
-
-      </div>
     </React.Fragment>
   );
 }

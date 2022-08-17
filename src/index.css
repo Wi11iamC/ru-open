@@ -39,3 +39,12 @@ code {
   text-align: center;
   justify-content: center;
 }
+
+.room-button {
+  margin: 10px 10px;
+  width: 100px;
+}
+
+.courses-container {
+  display: grid 1fr 1fr;
+}
