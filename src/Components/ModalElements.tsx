@@ -14,7 +14,7 @@ export default function ModalElements(props:any) {
                         section.meetingTimes.map((classMeeting:any) => (
                                 <div key={section.index}>
                                         {(classMeeting.roomNumber === props.room && 
-                                         <p>{course.title} | section: {section.number} | {classMeeting.startTimeMilitary}-{classMeeting.endTimeMilitary} | room={classMeeting.roomNumber}</p>
+                                         <p>{course.title} | section: {section.number} | {classMeeting.startTimeMilitary}-{classMeeting.endTimeMilitary} | {/* testing purposes room={classMeeting.roomNumber}*/} </p>
                                          )}
                                 </div>
 
