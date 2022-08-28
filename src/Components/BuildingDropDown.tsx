@@ -8,8 +8,8 @@ interface buildingProps {
 
 export const BuildingDropDown = (props: buildingProps) => {
 
-    const BUS_Buildings_Codes: string[] = ["ARC", "BME", "CCB", "COR", "EN", "HLL", "PH", "PHY", "SRN", "RWH", "SEC", "WL"]
-    const BUS_Buildings_Names: string[] = ["Allision Road Classroom", "Biomedical Engineering", "Chemistry and Chemical Biology", "Computing Research & Education (CoRE)", "Engineering", "Hill Center", "Pharmacy (William Levin Hall)", "Physics", "SRN", "Richard Weeks", "Science & Engineering Resource Center", "Wright Rieman Laboratories"]
+    const BUS_Buildings_Codes: string[] = ["ARC", "BME", "CCB", "COR", "EE", "EN", "HLL", "PH", "PHY", "SRN", "RWH", "SEC", "WL"]
+    const BUS_Buildings_Names: string[] = ["Allision Road Classroom", "Biomedical Engineering", "Chemistry and Chemical Biology", "Computing Research & Education (CoRE)", "Electrical Engineering", "Engineering", "Hill Center", "Pharmacy (William Levin Hall)", "Physics", "SRN", "Richard Weeks", "Science & Engineering Resource Center", "Wright Rieman Laboratories"]
 
     const CAC_Buildings_Codes: string[] = ["AB", "BH", "CA", "CI", "ED", "FH", "HC", "HH", "MI", "MU", "SC", "VD", "VH", "ZAM"]
     const CAC_Buildings_Names: string[] = ["Academic Building", "Bishop House", "Campbell Hall", "School of Communication and Information", "Graduate School of Education", "Frelinghuysen Hall", "Honors College", "Hardenbergh Hall", "Milledoler Hall", "Murray Hall", "Scott Hall", "Van Dyck Hall", "Voorhees Hall", "Zimmerli Art Museum"]
