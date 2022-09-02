@@ -36,7 +36,7 @@ export const BuildingDropDown = (props: buildingProps) => {
         current_buildings_names = CD_Buildings_Names;
     } 
 
-React.useEffect(() => {props.setBuilding(current_buildings[0])}, []);
+React.useEffect(() => {props.setBuilding(current_buildings[0])});
   return (
     <select name='building' id='buildingSelection' onChange={(e) => {props.setBuilding(e.target.value)}}>
         {
