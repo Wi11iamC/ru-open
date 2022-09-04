@@ -32,9 +32,7 @@ coursesData.forEach((course:any) => {
     classObject.level = course.level;
 
     course.sections.forEach((section:any) => {
-
         classObject.sectionNumber = section.number;
-
             section.meetingTimes.forEach((classMeeting:any) => {
                 if (classMeeting.meetingDay === day && classMeeting.buildingCode === building) {
                 classObject.startTime = `${classMeeting.startTime[0] == '0' ? classMeeting.startTime.substring(1).slice(0, 1) + ':' + classMeeting.startTime.substring(1).slice(1) : classMeeting.startTime.slice(0, 2) + ':' + classMeeting.startTime.slice(2)}${classMeeting.pmCode}M`
@@ -43,9 +41,7 @@ coursesData.forEach((course:any) => {
                 classObject.mode = classMeeting.meetingModeDesc;
                 res.push(classObject); 
             }
-
             })
-
     })
 
 });
