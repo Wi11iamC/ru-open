@@ -1,4 +1,5 @@
 import React from "react";
+import extractData from "../extractData";
 import ModalElements from "./ModalElements";
 
 
@@ -24,13 +25,13 @@ export const CourseElement = (props: any) => {
         }
 
 
-
+        
         const coursesData = props.courses;
         let roomNumbers:Array<string> = []; 
         //Filtering out meetingTimes that are not at specifed building or day
-        if (coursesData.length > 1) {
+        if (props.courses.length > 1) {
+        extractData(props.courses)
         coursesData.forEach((course:any) => {
-                
 
                 course.sections.forEach((section:any) => {
 
