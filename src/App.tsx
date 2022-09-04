@@ -2,7 +2,19 @@ import React from 'react';
 import { BuildingDropDown } from './Components/BuildingDropDown';
 import getCourses from './api';
 import { CourseElement } from './Components/CourseElement';
+import extractData from './extractData';
+import extractRoomNumbers from './extractRoomNumbers';
 
+interface courseObject {
+  title: string,
+  sectionNumber: string,
+  startTime: string,
+  endTime: string,
+  level: string,
+  courseString: string,
+  room: string,
+  mode: string,
+}
 
 const App : React.FC = () => {
 
@@ -10,21 +22,22 @@ const App : React.FC = () => {
   const [campus, setCampus] = React.useState("BUS")
   const [building, setBuilding] = React.useState("ARC");
   const [loading, setloading] = React.useState(false) 
-  const [data, setData] = React.useState([]);
+  const [data, setData] = React.useState<Array<courseObject>>([]);
+  const [RoomsInBuilding, setRoomsInBuilding] = React.useState<Array<string>>([]);
   
   const formSubmitted: React.FormEventHandler = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault()
     setloading(true);
     let ddata:any = await getCourses(day, campus, building);
     setloading(false);
-    ddata.forEach((course:any) => {
+    
+    let res: Array<courseObject> = extractData(ddata, day, building);
+    let roomNumbers:Array<string> = extractRoomNumbers(res);
 
-      course.sections = course.sections.filter((section:any) => section.meetingTimes.some((meetingTimes:any) => (meetingTimes.meetingDay === day && meetingTimes.buildingCode === building)))
-      
-    })
-
-    console.log(ddata);
-    setData(ddata);
+    console.log(res);
+    console.log(roomNumbers);  
+    setData(res);
+    setRoomsInBuilding(roomNumbers)
 
 }
   return (
@@ -64,7 +77,7 @@ const App : React.FC = () => {
       </div>
     )}
 
-            <CourseElement courses={data} day={day} building={building}/>
+            <CourseElement courses={data} day={day} building={building} rooms={RoomsInBuilding}/>
 
     </React.Fragment>
   );
