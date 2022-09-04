@@ -11,7 +11,7 @@ export default function ModalElements(props:any) {
                         
                                 <div key={index}>
                                         {(course.room === props.room && 
-                                         <p>{course.title} | section: {course.sectionNumber} | level: {course.level} | {course.startTime}-{course.endTime} | mode: {course.mode}</p>
+                                         <p>{course.title} | {course.courseString} | section: {course.sectionNumber} | level: {course.level} | {course.startTime}-{course.endTime} | mode: {course.mode}</p>
                                          )}
                                 </div>
                         
