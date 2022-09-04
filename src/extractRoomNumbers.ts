@@ -11,6 +11,8 @@ if (data.length > 1) {
 
     })
 }
+
+res = res.sort();
     return res;
     
 }
