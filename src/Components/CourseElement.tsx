@@ -23,55 +23,18 @@ export const CourseElement = (props: any) => {
           mm.classList.add("inactive")
           }
         }
-
-
-        
-        const coursesData = props.courses;
-        let roomNumbers:Array<string> = []; 
-        //Filtering out meetingTimes that are not at specifed building or day
-        if (props.courses.length > 1) {
-        extractData(props.courses)
-        coursesData.forEach((course:any) => {
-
-                course.sections.forEach((section:any) => {
-
-                        section.meetingTimes = section.meetingTimes.filter((classMeeting:any) => (classMeeting.meetingDay === props.day && classMeeting.buildingCode === props.building))
-
-                })
-
-        });
-
-        coursesData.forEach((course:any) => {
-                course.sections.forEach((section:any) => {
-                        section.meetingTimes.forEach((classMeeting:any, index:any) => {
-        
-                                if (!roomNumbers.some((roomNumber:any) => (classMeeting.roomNumber === roomNumber))){
-                                        roomNumbers.push(classMeeting.roomNumber)
-                                }       
-
-                })
-        
-                })
-        
-        })
-
               
-}
-
-
-
-
 
 return (
 
 <div className="courses-container">
         
 {
-        roomNumbers.map((room, index:any) => {
+        props.rooms.map((room:any, index:any) => {
                 return (
                 <>
                 <button className="room-button" onClick={() => openModal(index+1000)}>{room}</button>
-                <ModalElements idx={index+1000} room={room} coursesData={coursesData} closeModal={closeModal} />
+                <ModalElements idx={index+1000} key={index+1000} room={room} coursesData={props.courses} closeModal={closeModal} />
                 </>
                 )
 
