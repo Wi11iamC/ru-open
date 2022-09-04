@@ -37,7 +37,7 @@ const App : React.FC = () => {
     console.log(res);
     console.log(roomNumbers);  
     setData(res);
-    setRoomsInBuilding(roomNumbers)
+    setRoomsInBuilding(roomNumbers);
 
 }
   return (
