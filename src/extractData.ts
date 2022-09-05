@@ -52,9 +52,9 @@ coursesData.forEach((course:any) => {
 });
     res = res.sort((a:courseObject, b:courseObject) => {
         
-        if (a.startTime < b.startTime)
+        if (new Date(`1766/11/10 ${a.startTime.substring(0, a.startTime.indexOf('M')-1) + ' ' +  a.startTime.substring(a.startTime.indexOf('M')-1, a.startTime.length)}`) < new Date(`1766/11/10 ${b.startTime.substring(0, b.startTime.indexOf('M')-1) + ' ' +  b.startTime.substring(b.startTime.indexOf('M')-1, b.startTime.length)}`))
         return -1;
-        if (a.startTime < b.startTime)
+        if (new Date(`1766/11/10 ${a.startTime.substring(0, a.startTime.indexOf('M')-1) + ' ' +  a.startTime.substring(a.startTime.indexOf('M')-1, a.startTime.length)}`) > new Date(`1766/11/10 ${b.startTime.substring(0, b.startTime.indexOf('M')-1) + ' ' +  b.startTime.substring(b.startTime.indexOf('M')-1, b.startTime.length)}`))
         return 1;
         
         return 0;
