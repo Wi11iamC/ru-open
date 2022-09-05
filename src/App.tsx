@@ -77,7 +77,7 @@ const App : React.FC = () => {
       </div>
     )}
 
-            <CourseElement courses={data} day={day} building={building} rooms={RoomsInBuilding}/>
+            <CourseElement key={1} courses={data} day={day} building={building} rooms={RoomsInBuilding}/>
 
     </React.Fragment>
   );
