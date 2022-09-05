@@ -44,15 +44,13 @@ coursesData.forEach((course:any) => {
                 classObject.room = classMeeting.roomNumber;
                 classObject.mode = classMeeting.meetingModeDesc;
                 res.push(classObject); 
-                console.log(classObject);
-                
-                console.log(res);
                 
             }
             })
     })
 
 });
+    res = res.sort((a:courseObject, b:courseObject) => (a.startTime - b.startTime))
     return res;
 
 
