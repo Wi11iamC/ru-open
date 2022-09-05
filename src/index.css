@@ -84,3 +84,7 @@ code {
 .modal-course-description {
   margin: 20px 0;
 }
+
+.modal-course-time {
+  font-weight: 900;
+}
