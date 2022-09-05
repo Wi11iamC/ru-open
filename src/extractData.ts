@@ -50,7 +50,16 @@ coursesData.forEach((course:any) => {
     })
 
 });
-    res = res.sort((a:courseObject, b:courseObject) => (a.startTime - b.startTime))
+    res = res.sort((a:courseObject, b:courseObject) => {
+        
+        if (a.startTime < b.startTime)
+        return -1;
+        if (a.startTime < b.startTime)
+        return 1;
+        
+        return 0;
+    
+    })
     return res;
 
 
