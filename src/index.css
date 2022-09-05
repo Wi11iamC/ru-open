@@ -31,8 +31,9 @@ code {
 .form-wrapper {
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 20px;
 }
+
 
 .loading-image-wrapper {
   display: flex;
@@ -41,13 +42,16 @@ code {
 }
 
 .room-button {
-  margin: 10px 10px;
   width: 100px;
 }
 
 .courses-container {
-  display: grid 1fr;
-  
+  display: grid; 
+  grid-template-columns: repeat(3, 0.75fr);
+  grid-template-rows: auto;
+  justify-items: center;
+  align-items: center;
+  gap: 30px;
 }
 
 .inactive {
@@ -65,5 +69,18 @@ code {
   top: 0;
   left: 0;
   position: fixed;
-  background-color: red;
+  background-color: maroon;
+  opacity: 0.95;
+
+  padding: 30px;
+  overflow-y: scroll;
+}
+
+.close-modal-button {
+  width: 100px;
+  margin: 10px 0;
+}
+
+.modal-course-description {
+  margin: 20px 0;
 }
